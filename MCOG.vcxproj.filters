@@ -51,9 +51,6 @@
     <ClCompile Include="Src\Util\IniParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Graphics\Frustum.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Src\Util\FastNoiseLite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -94,6 +91,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Src\World\WorldManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\World\WorldGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UI\Widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UI\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\UI\Switch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\States\MenuState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Engine\Options.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -194,6 +209,30 @@
     <ClInclude Include="Include\World\WorldManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Include\World\WorldGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\UI\Widget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\UI\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\UI\Switch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\States\MenuState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Engine\Options.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Util\Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Util\BoundingBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="RunDebug.bat">
@@ -244,6 +283,18 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Media\Assets\Textures\Terrain.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Media\Assets\Textures\SkyboxBack.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Media\Assets\Textures\SkyboxFront.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Media\Assets\Textures\SkyboxLeft.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Media\Assets\Textures\SkyboxRight.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

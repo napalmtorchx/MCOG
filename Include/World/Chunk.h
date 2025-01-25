@@ -29,6 +29,9 @@ namespace Minecraft
 			D3DXVECTOR3 pos;
 			int			index;
 			bool        loaded;
+			bool		contains_player;
+			bool		rayhit;
+			float		dist_to_player;
 			
 		private:
 			size_t _rend_faces, _total_faces;

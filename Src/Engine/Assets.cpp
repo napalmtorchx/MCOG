@@ -15,18 +15,25 @@ namespace Minecraft
         LoadTexture("Font", "D:\\Assets\\Textures\\UI\\Font.bmp", D3DCOLOR_ARGB(255, 0, 0, 0));
         font = SpriteFont(17, 35, -6, -16, 0, 0, &textures["Font"]);
 
-        LoadTexture("Button", "D:\\Assets\\Textures\\UI\\Button.bmp", D3DCOLOR_ARGB(255, 0, 0, 255));
-        LoadTexture("ButtonLarge", "D:\\Assets\\Textures\\UI\\ButtonLarge.bmp", D3DCOLOR_ARGB(255, 0, 0, 255));
-        LoadTexture("Controls", "D:\\Assets\\Textures\\UI\\Controls.bmp", D3DCOLOR_ARGB(255, 0, 0, 255));
-        LoadTexture("Crosshair", "D:\\Assets\\Textures\\UI\\Crosshair.bmp", D3DCOLOR_ARGB(255, 0, 0, 255));
-        LoadTexture("SliderGrip", "D:\\Assets\\Textures\\UI\\SliderGrip.bmp", D3DCOLOR_ARGB(255, 0, 0, 255));
-        LoadTexture("SwitchOff", "D:\\Assets\\Textures\\UI\\SwitchOff.bmp", D3DCOLOR_ARGB(255, 0, 0, 255));
-        LoadTexture("SwitchOn", "D:\\Assets\\Textures\\UI\\SwitchOn.bmp", D3DCOLOR_ARGB(255, 0, 0, 255));
+        LoadTexture("Button", "D:\\Assets\\Textures\\UI\\Button.bmp", D3DCOLOR_ARGB(255, 255, 0, 255));
+        LoadTexture("ButtonLarge", "D:\\Assets\\Textures\\UI\\ButtonLarge.bmp", D3DCOLOR_ARGB(255, 255, 0, 255));
+        LoadTexture("Controls", "D:\\Assets\\Textures\\UI\\Controls.bmp", D3DCOLOR_ARGB(255, 255, 0, 255));
+        LoadTexture("Crosshair", "D:\\Assets\\Textures\\UI\\Crosshair.bmp", D3DCOLOR_ARGB(255, 255, 0, 255));
+        LoadTexture("SliderGrip", "D:\\Assets\\Textures\\UI\\SliderGrip.bmp", D3DCOLOR_ARGB(255, 255, 0, 255));
+        LoadTexture("SwitchOff", "D:\\Assets\\Textures\\UI\\SwitchOff.bmp", D3DCOLOR_ARGB(255, 255, 0, 255));
+        LoadTexture("SwitchOn", "D:\\Assets\\Textures\\UI\\SwitchOn.bmp", D3DCOLOR_ARGB(255, 255, 0, 255));
+
+        LoadTexture("SkyboxTop", "D:\\Assets\\Textures\\SkyboxTop.bmp", D3DCOLOR_ARGB(0, 0, 0, 0));
+        LoadTexture("SkyboxBottom", "D:\\Assets\\Textures\\SkyboxBottom.bmp", D3DCOLOR_ARGB(0, 0, 0, 0));
+        LoadTexture("SkyboxLeft", "D:\\Assets\\Textures\\SkyboxLeft.bmp", D3DCOLOR_ARGB(0, 0, 0, 0));
+        LoadTexture("SkyboxRight", "D:\\Assets\\Textures\\SkyboxRight.bmp", D3DCOLOR_ARGB(0, 0, 0, 0));
+        LoadTexture("SkyboxBack", "D:\\Assets\\Textures\\SkyboxBack.bmp", D3DCOLOR_ARGB(0, 0, 0, 0));
+        LoadTexture("SkyboxFront", "D:\\Assets\\Textures\\SkyboxFront.bmp", D3DCOLOR_ARGB(0, 0, 0, 0));
 
         LoadTexture("Pixel", "D:\\Assets\\Textures\\UI\\Pixel.bmp");
         LoadTexture("Logo", "D:\\Assets\\Textures\\UI\\Logo.png");
 
-        atlas = TextureAtlas("D:\\Assets\\Textures\\Terrain.bmp", 16, 16, D3DCOLOR_ARGB(255, 0, 0, 255));
+        atlas = TextureAtlas("D:\\Assets\\Textures\\Terrain.bmp", 16, 16, D3DCOLOR_ARGB(255, 255, 0, 255));
 
         LoadBlocks();
 

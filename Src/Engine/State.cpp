@@ -51,9 +51,11 @@ namespace Minecraft
         states.clear();
         index = -1;
 
-        GameState::instance = new GameState();
-        Load(GameState::instance);
-        Set(GameState::instance);
+        Load(GameState::instance = new GameState());
+        Load(MenuState::instance = new MenuState());
+        Set(MenuState::instance);
+
+
 
         RXDK_LOG_INFO("Initialized state manager\n");
     }

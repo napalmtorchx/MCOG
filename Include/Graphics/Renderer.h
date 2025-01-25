@@ -16,7 +16,7 @@ namespace Minecraft
             static size_t _rend_verts, _rend_faces, _total_verts, _total_faces;
 
         public:
-            static void InitSkybox(Texture* sides, Texture* top, Texture* btm);
+            static void InitSkybox(Texture** sides, Texture* top, Texture* btm);
             static void Begin();
             static void End();
 

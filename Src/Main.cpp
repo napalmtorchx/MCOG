@@ -1,6 +1,7 @@
 #include "Minecraft.h"
 
-extern "C" void __cdecl __CxxFrameHandler3() { }
+extern "C" void __cdecl __CxxFrameHandler3() { RXDK_LOG_INFO("__CxxFrameHandler3() has been called\n"); while (true); }
+
 
 int RXDKRuntimeDebugLevel = 0;
 

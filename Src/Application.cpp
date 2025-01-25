@@ -18,6 +18,11 @@ namespace Minecraft
         States::Init();
         Input::Init();
 
+        Options::Load();
+
+        Texture* textures[4] = { &Assets::textures["SkyboxLeft"], &Assets::textures["SkyboxFront"], &Assets::textures["SkyboxRight"], &Assets::textures["SkyboxBack"] };
+        Renderer::InitSkybox(textures, &Assets::textures["SkyboxTop"], &Assets::textures["SkyboxBottom"]);
+
         RXDK_LOG_INFO("Finished initializing system\n");
     }
 
@@ -87,18 +92,15 @@ namespace Minecraft
         _snprintf(_lnbuff, sizeof(_lnbuff), "%d FPS @ %d ms\n", _fps, (int)(_dtps * 1000.0f));
         strcat(_dbgtxt, _lnbuff);
 
-        _snprintf(_lnbuff, sizeof(_lnbuff), "RAM: %.0f%% %u/%uKB\n", percent, GetUsedMemoryAmount() / 1024, GetTotalMemoryAmount() / 1024);
+        _snprintf(_lnbuff, sizeof(_lnbuff), "RAM: %.0f%% %u/%u BYTES\n", percent, GetUsedMemoryAmount(), GetTotalMemoryAmount());
         strcat(_dbgtxt, _lnbuff);
 
-        if (GameState::instance != NULL)
+        if (GameState::instance != NULL && States::GetActive() == GameState::instance)
         {
-            _snprintf(_lnbuff, sizeof(_lnbuff), "FACES: %u/%u\n", GameState::instance->world->chunks[0].GetRenderedFaceCount(), GameState::instance->world->chunks[0].GetTotalFaceCount());
-            strcat(_dbgtxt, _lnbuff);
-
             _snprintf(_lnbuff, sizeof(_lnbuff), "POS: %.0f, %.0f, %.0f\n", GameState::instance->player.pos.x, GameState::instance->player.pos.y, GameState::instance->player.pos.z);
             strcat(_dbgtxt, _lnbuff);
 
-            _snprintf(_lnbuff, sizeof(_lnbuff), "DIR: %.0f, %.0f\n", GameState::instance->player.cam.lookdir.x, GameState::instance->player.cam.lookdir.y);
+            _snprintf(_lnbuff, sizeof(_lnbuff), "FACES: %u/%u\n", GameState::instance->world->GetRenderedFaceCount(), GameState::instance->world->GetTotalFaceCount());
             strcat(_dbgtxt, _lnbuff);
         }
 

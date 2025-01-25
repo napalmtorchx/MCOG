@@ -5,7 +5,7 @@ namespace Minecraft
 {
     GameState* GameState::instance = NULL;
 
-    GameState::GameState() : State("game")
+    GameState::GameState() : State("game"), world(NULL)
     {
 
     }
@@ -14,10 +14,7 @@ namespace Minecraft
     {
         State::Load();
 
-        world = new World("TestWorld");
-        world->Load();
-
-        player = Player("player", 0, 0, -4);
+        player = Player("player", WORLD_WIDTH / 2, WORLD_HEIGHT + 2, WORLD_DEPTH / 2);
         player.Load();
     }
 
@@ -49,10 +46,11 @@ namespace Minecraft
 
         player.Draw(dt);
 
-        BlockMetadata* blk = &Assets::blocks[1];
         Renderer::Begin();
 
+        Renderer::DrawSkybox(D3DXVECTOR3(3072.0f, 3072.0f, 3072.0f), D3DCOLOR_ARGB(255, 255, 255, 255));
         world->Draw(dt);
+        if (player.placement_pos.x != -99999) { Renderer::DrawCube(NULL, player.placement_pos, D3DXVECTOR3(1, 1, 1), false, true, D3DCOLOR_ARGB(100, 255, 128, 128)); }
 
         Renderer::End();
     }
@@ -62,7 +60,9 @@ namespace Minecraft
         State::DrawUI(dt);
 
         Canvas::Begin();
-        Canvas::DrawStringShadow(64, 60, 1.0f, App::GetDebugText(), D3DCOLOR_ARGB(255, 255, 255, 255), D3DCOLOR_ARGB(255, 0, 0, 0), 2, &Assets::font);
+        Canvas::Draw(Rectangle((SCREEN_WIDTH / 2) - 64, (SCREEN_HEIGHT / 2) - 64, 128, 128), &Assets::textures["Crosshair"], D3DCOLOR_ARGB(255, 255, 255, 255));
+
+        Canvas::DrawStringShadow(4, 4, 1.0f, App::GetDebugText(), D3DCOLOR_ARGB(255, 255, 255, 255), D3DCOLOR_ARGB(255, 0, 0, 0), 2, &Assets::font);
         Canvas::End();
     }
 }

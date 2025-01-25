@@ -54,6 +54,10 @@ namespace Minecraft
 
     void ChunkMesh::Generate()
     {
+        memset(_tempfaces, 0, sizeof(_tempfaces));
+        memset(_sidefaces, 0, sizeof(_sidefaces));
+        facemap.clear();
+        faces.clear();
         generated = false;
         DWORD bt = 0;
         int i, j, x, y, z;
@@ -73,6 +77,15 @@ namespace Minecraft
                 z = BLOCK_Z(i);
                 y = BLOCK_Y(i, z);
                 x = BLOCK_X(i, z, y);
+
+                /*
+                Block* blks[6] = { NULL, NULL, NULL, NULL, NULL, NULL };
+                int n = GetNeighbors(blks, x, y, z);
+                if (n == 6 && 
+                    x > 0 && x < CHUNK_WIDTH - 1 && 
+                    y > 0 && y < CHUNK_HEIGHT - 1 &&
+                    z > 0 && z < CHUNK_DEPTH - 1) { continue; }
+                    */
 
                 BlockMetadata& metadata = Assets::blocks[chunk->blocks[i].id];
                 GenerateBlockFaces(&metadata, &chunk->blocks[i], x, y, z);
@@ -101,6 +114,11 @@ namespace Minecraft
 
                 tw = 1;
                 th = 1;
+                float cm = 1.0f;
+                if (face.face == VOXELFACE_FRONT) { cm = 0.9f; }
+                if (face.face == VOXELFACE_LEFT || face.face == VOXELFACE_RIGHT) { cm = 0.6f; }
+                if (face.face == VOXELFACE_BACK) { cm = 0.4f; }
+                if (face.face == VOXELFACE_BOTTOM) { cm = 0.32f; }
 
                 if (face.face == VOXELFACE_FRONT || face.face == VOXELFACE_BACK) { tw = face.sz.x; th = face.sz.y; }
                 else if (face.face == VOXELFACE_LEFT || face.face == VOXELFACE_RIGHT) { tw = face.sz.z; th = face.sz.y; }
@@ -115,10 +133,10 @@ namespace Minecraft
                     face.vertices[v].uv.x = VOXEL_UVS[(face.face * FACE_VERTEX_COUNT) + v].x * tw;
                     face.vertices[v].uv.y = VOXEL_UVS[(face.face * FACE_VERTEX_COUNT) + v].y * th;
 
-                    color.a = VOXEL_LIGHTS[(face.face * 4) + v];
-                    color.r = VOXEL_LIGHTS[(face.face * 4) + v];
-                    color.g = VOXEL_LIGHTS[(face.face * 4) + v];
-                    color.b = 0xFF;
+                    color.r = cm;
+                    color.g = cm;
+                    color.b = cm;
+                    color.a = 0xFF;
 
                     face.vertices[v].color = color;
                 }

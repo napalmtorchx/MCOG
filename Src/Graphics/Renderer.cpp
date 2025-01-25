@@ -10,9 +10,9 @@ namespace Minecraft
     size_t   Renderer::_total_verts;
     size_t   Renderer::_total_faces;
 
-    void Renderer::InitSkybox(Texture* sides, Texture* top, Texture* btm)
+    void Renderer::InitSkybox(Texture** sides, Texture* top, Texture* btm)
     {
-        for (int i = 0; i < 4; i++) { skybox[i] = sides; }
+        for (int i = 0; i < 4; i++) { skybox[i] = sides[i]; }
         skybox[VOXELFACE_TOP] = top;
         skybox[VOXELFACE_BOTTOM] = btm;
     }
@@ -102,7 +102,8 @@ namespace Minecraft
             _cube[(f * FACE_VERTEX_COUNT) + 2].uv = VOXEL_UVS[(f * FACE_VERTEX_COUNT) + 2];
             _cube[(f * FACE_VERTEX_COUNT) + 3].uv = VOXEL_UVS[(f * FACE_VERTEX_COUNT) + 3];
 
-            GraphicsManager::device->SetTexture(0, textures[f] == NULL ? NULL : textures[f]->D3D());
+            if (textures == NULL) { GraphicsManager::device->SetTexture(0, NULL); }
+            else { GraphicsManager::device->SetTexture(0, textures[f] == NULL ? NULL : textures[f]->D3D()); }
 
             if (cull)
             {
@@ -135,8 +136,6 @@ namespace Minecraft
             _cube[v].pos += pos;
             _cube[v].color = color;
         }
-
-       // if (((_cube[0].color & 0xFF000000) >> 24) == 0)  { return; }
 
         GraphicsManager::device->SetTexture(0, texture->D3D());
         DrawPrimitive(D3DPT_QUADLIST, _cube, 1);

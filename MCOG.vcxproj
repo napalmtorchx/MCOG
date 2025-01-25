@@ -16,11 +16,11 @@
     <ClCompile Include="Src\Engine\Component.cpp" />
     <ClCompile Include="Src\Engine\Entity.cpp" />
     <ClCompile Include="Src\Engine\Input.cpp" />
+    <ClCompile Include="Src\Engine\Options.cpp" />
     <ClCompile Include="Src\Engine\State.cpp" />
     <ClCompile Include="Src\Entities\Player.cpp" />
     <ClCompile Include="Src\Graphics\Camera.cpp" />
     <ClCompile Include="Src\Graphics\Canvas.cpp" />
-    <ClCompile Include="Src\Graphics\Frustum.cpp" />
     <ClCompile Include="Src\Graphics\GraphicsManager.cpp" />
     <ClCompile Include="Src\Graphics\Ray.cpp" />
     <ClCompile Include="Src\Graphics\Rectangle.cpp" />
@@ -30,12 +30,17 @@
     <ClCompile Include="Src\Graphics\TextureAtlas.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\States\GameState.cpp" />
+    <ClCompile Include="Src\States\MenuState.cpp" />
+    <ClCompile Include="Src\UI\Button.cpp" />
+    <ClCompile Include="Src\UI\Switch.cpp" />
+    <ClCompile Include="Src\UI\Widget.cpp" />
     <ClCompile Include="Src\Util\FastNoiseLite.cpp" />
     <ClCompile Include="Src\Util\FileSystem.cpp" />
     <ClCompile Include="Src\Util\IniParser.cpp" />
     <ClCompile Include="Src\World\Chunk.cpp" />
     <ClCompile Include="Src\World\ChunkMesh.cpp" />
     <ClCompile Include="Src\World\World.cpp" />
+    <ClCompile Include="Src\World\WorldGenerator.cpp" />
     <ClCompile Include="Src\World\WorldManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +51,7 @@
     <ClInclude Include="Include\Engine\Debug.h" />
     <ClInclude Include="Include\Engine\Entity.h" />
     <ClInclude Include="Include\Engine\Input.h" />
+    <ClInclude Include="Include\Engine\Options.h" />
     <ClInclude Include="Include\Engine\State.h" />
     <ClInclude Include="Include\Entities\Player.h" />
     <ClInclude Include="Include\Graphics\Camera.h" />
@@ -62,6 +68,12 @@
     <ClInclude Include="Include\Graphics\Voxel.h" />
     <ClInclude Include="Include\Minecraft.h" />
     <ClInclude Include="Include\States\GameState.h" />
+    <ClInclude Include="Include\States\MenuState.h" />
+    <ClInclude Include="Include\UI\Button.h" />
+    <ClInclude Include="Include\UI\Switch.h" />
+    <ClInclude Include="Include\UI\Widget.h" />
+    <ClInclude Include="Include\Util\BoundingBox.h" />
+    <ClInclude Include="Include\Util\Collision.h" />
     <ClInclude Include="Include\Util\FastNoiseLite.h" />
     <ClInclude Include="Include\Util\FileSystem.h" />
     <ClInclude Include="Include\Util\IniParser.h" />
@@ -70,6 +82,7 @@
     <ClInclude Include="Include\World\Chunk.h" />
     <ClInclude Include="Include\World\ChunkMesh.h" />
     <ClInclude Include="Include\World\World.h" />
+    <ClInclude Include="Include\World\WorldGenerator.h" />
     <ClInclude Include="Include\World\WorldManager.h" />
   </ItemGroup>
   <ItemGroup>
@@ -77,7 +90,11 @@
     <None Include="RunRelease.bat" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Media\Assets\Textures\SkyboxBack.bmp" />
     <Image Include="Media\Assets\Textures\SkyboxBottom.bmp" />
+    <Image Include="Media\Assets\Textures\SkyboxFront.bmp" />
+    <Image Include="Media\Assets\Textures\SkyboxLeft.bmp" />
+    <Image Include="Media\Assets\Textures\SkyboxRight.bmp" />
     <Image Include="Media\Assets\Textures\SkyboxSide.bmp" />
     <Image Include="Media\Assets\Textures\SkyboxTop.bmp" />
     <Image Include="Media\Assets\Textures\Terrain.bmp" />
@@ -155,7 +172,7 @@
       <PreprocessorDefinitions>XBOX;_XBOX;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Users\Will\Desktop\MCOG\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -202,7 +219,7 @@ start RunDebug.bat</Command>
       <PreprocessorDefinitions>XBOX;_XBOX;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Users\Will\Desktop\MCOG\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
